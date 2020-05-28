@@ -1,7 +1,8 @@
 <template>
   <q-layout view="hHh lpR fFf">
-    <q-header elevated>
+    <q-header elevated >
       <q-toolbar>
+        
         <q-toolbar-title class="absolut-center">
           Awesome Todo
         </q-toolbar-title>
@@ -14,7 +15,6 @@
           v-for="nav in navs"
           :key="nav.label"
           :to="nav.to"
-          exact
           :icon="nav.icon"
           :label="nav.label"
         />
@@ -28,7 +28,7 @@
       bordered
       content-class="bg-primary"
     >
-      <q-list>
+      <q-list dark> 
         <q-item-label header>
           Navigation
         </q-item-label>
@@ -57,18 +57,15 @@
 </template>
 
 <script>
-import EssentialLink from "components/EssentialLink";
+import { openURL } from "quasar";
 
 export default {
   name: "MainLayout",
 
-  components: {
-    EssentialLink
-  },
 
   data() {
     return {
-      leftDrawerOpen: false,
+      leftDrawerOpen: this.$q.platform.is.desktop,
       navs: [
         {
           label: "Todo",
@@ -91,10 +88,15 @@ export default {
 };
 </script>
 
-<style>
+<style lang="scss">
 @media screen and (min-width: 768px) {
   .q-footer {
     display: none;
   }
 }
+.q-drawer {
+    .q-router-link--exact-active {
+      color: white !important;
+    }
+  }
 </style>
