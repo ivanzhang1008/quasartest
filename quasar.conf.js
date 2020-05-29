@@ -63,7 +63,15 @@ module.exports = function(/* ctx */) {
         "QTab",
         "QRouteTab",
         "QCheckbox",
-        "QDialog"
+        "QDialog",
+        "QCard",
+        "QCardSection",
+        "QCardActions",
+        "QSpace",
+        "QInput",
+        "QDate",
+        "QPopupProxy",
+        "QTime"
       ],
       directives: [
         "ClosePopup"
