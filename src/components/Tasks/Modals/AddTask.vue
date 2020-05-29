@@ -16,8 +16,7 @@
             autofocus
             ref="name"
             label="Task name"
-            class="col"
-          >
+            class="col">
             <template v-slot:append>
               <q-icon
                 v-if="taskToSubmit.name"
