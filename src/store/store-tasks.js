@@ -21,7 +21,7 @@ const state = {
             dueDate: '2019/05/14',
             dueTime: '12:30'
         },
-    }
+    },
 }
 
 const mutations = {
@@ -55,9 +55,28 @@ const actions = {
 }
 
 const getters = {
-    tasks: (state) => {
-        return state.tasks
-    }
+    tasksTodo: (state) => {
+        let tasks = {}
+        Object.keys(state.tasks).forEach (function(key)  {
+            let task = state.tasks[key]
+            console.log('task: ',task);
+            if(!task.completed){
+                tasks[key] = task
+            }
+        });
+        return tasks
+    },
+    tasksCompleted: (state) => {
+        let tasks = {}
+        Object.keys(state.tasks).forEach (function(key)  {
+            let task = state.tasks[key]
+            console.log('task: ',task);
+            if(task.completed){
+                tasks[key] = task
+            }
+        });
+        return tasks
+    },
 }
 
 export default {
